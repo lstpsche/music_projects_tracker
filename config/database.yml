@@ -19,10 +19,12 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
 
 development:
   <<: *default
+  username: <%= ENV.fetch('DB_USERNAME') %>
+  password: <%= ENV.fetch('DB_PASSWORD') %>
   database: music_projects_tracker_development
 
   # The specified database role being used to connect to postgres.
@@ -82,5 +84,5 @@ test:
 production:
   <<: *default
   database: music_projects_tracker_production
-  username: music_projects_tracker
-  password: <%= ENV["MUSIC_PROJECTS_TRACKER_DATABASE_PASSWORD"] %>
+  username: <%= ENV.fetch('DB_USERNAME') %>
+  password: <%= ENV.fetch('DB_PASSWORD') %>
