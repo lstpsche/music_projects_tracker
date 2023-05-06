@@ -1,0 +1,6 @@
+DOTENV_REQUIRED_KEYS = %w[
+  DB_USERNAME
+  DB_PASSWORD
+]
+
+Dotenv.require_keys(*DOTENV_REQUIRED_KEYS)
