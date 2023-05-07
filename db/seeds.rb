@@ -9,3 +9,8 @@
 user = User.create(
   username: 'test'
 )
+
+project = Project.create(
+  name: 'Test project',
+  user: user
+)
